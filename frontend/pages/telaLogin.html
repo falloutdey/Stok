@@ -8,23 +8,17 @@
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="FrontEnd\assets\js\auth.js"></script>
+    <script src="FrontEnd\assets\js\login.js"></script>
 
     <!-- Ícones do Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        /* Sombra personalizada para os cards */
-        .card-shadow {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
+    <link
+        rel="stylesheet"
+        href="FrontEnd\assets\css\style.css"
+    />
 
-        /* Transição suave */
-        .transition-all {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 200ms;
-        }
-    </style>
 </head>
 <body class="min-h-screen w-full bg-gray-200 flex items-center justify-center p-4">
     
@@ -137,15 +131,5 @@
             <img src="renderizacao-3d-de-um-fundo-de-vendas.png" class="w-[120%] h-auto">
         </div>
     </div>
-
-    <!-- Script para capturar dados do formulário no console (simulação de login) -->
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // impede reload da página
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            console.log('Login attempt:', { email, password }); // só exibe no console por enquanto
-        });
-    </script>
 </body>
 </html>

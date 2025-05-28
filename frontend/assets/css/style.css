@@ -1,0 +1,20 @@
+/* Estilos globais que são usados em ambas as páginas */
+.card-shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #e5e7eb; /* bg-gray-200 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* p-4 */
+}
