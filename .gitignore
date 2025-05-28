@@ -1,0 +1,11 @@
+# Ignorar arquivos do sistema
+.DS_Store
+
+# Ignorar dependências PHP
+/backend/vendor/
+
+# Ignorar banco de dados (por segurança)
+/backend/src/Database.php
+
+# Ignorar outras coisas específicas que você não quer versionar
+text.txt

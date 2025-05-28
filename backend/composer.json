@@ -1,0 +1,16 @@
+{
+    "name": "stok/backend",
+    "description": "Backend da API para o sistema de controle de estoque Stok.",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lima-12",
+            "email": "limaufpa2022@gmail.com"
+        }
+    ],
+    "require": {}
+}
