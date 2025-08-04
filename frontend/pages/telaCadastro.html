@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastro - Stok</title>
-    <script src="../assets/js/auth.js"></script>
-    <script src="../assets/js/login.js"></script>
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/auth.js" defer></script>
+    <script src="../assets/js/cadastro.js" defer></script>
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link
-        rel="stylesheet"
-        href="FrontEnd\assets\css\style.css"
-    />
+    <style>
+        .card-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+    </style>
 </head>
 <body
     class="min-h-screen w-full bg-gray-200 flex items-center justify-center p-4"
@@ -199,5 +205,34 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document
+            .getElementById("registerForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                console.log("Register attempt:", {
+                    name,
+                    email,
+                    password,
+                    confirmPassword,
+                });
+
+                // Validação básica
+                if (password !== confirmPassword) {
+                    alert("As senhas não coincidem!");
+                    return;
+                }
+
+                // Aqui você pode adicionar a lógica de cadastro
+                // window.location.href = '/dashboard'; // Redirecionamento após cadastro
+            });
+    </script>
 </body>
 </html>
+
