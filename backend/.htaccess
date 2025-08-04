@@ -1,11 +1,14 @@
 <IfModule mod_rewrite.c>
+    # Habilita o motor de reescrita de URL do Apache
     RewriteEngine On
 
-    # Se o arquivo ou diretório solicitado não existir fisicamente
+# Se a requisição NÃO for para um arquivo que existe...
     RewriteCond %{REQUEST_FILENAME} !-f
+
+# E se a requisição NÃO for para um diretório que existe...
     RewriteCond %{REQUEST_FILENAME} !-d
-    # Redireciona a requisição para index.php
-    # O [L] significa que é a última regra a ser processada
-    # O [QSA] significa "Query String Append", para manter os parâmetros GET (ex: /produtos?id=1)
-    RewriteRule ^(.*)$ index.php [L,QSA]
+
+# ...Então, redirecione a requisição para o index.php
+    RewriteRule ^ index.php [QSA,L]
+
 </IfModule>

@@ -1,37 +1,26 @@
 <?php
 
-// echo json_encode(['msg' => 'Roteador PHP iniciado']);
+use App\Controllers\ProdutoController;
+use App\Controllers\HomeController;
+use App\Controllers\AuthController;
 
-function load(string $controller, string $action)
-{
-    try {
-        // se controller existe
-        $controllerNamespace = "App\\Controllers\\{$controller}";
-
-        if (!class_exists($controllerNamespace)) {
-            throw new Exception("O controller {$controller} não existe");
-        }
-
-        $controllerInstance = new $controllerNamespace();
-
-        if (!method_exists($controllerInstance, $action)) {
-            throw new Exception(
-                "O método {$action} não existe no controller {$controller}"
-            );
-        }
-
-        $controllerInstance->$action((object) $_REQUEST);
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
-}
-
-$router = [
-  "GET" => [
-    "/" => fn () => load("HomeController", "index"),
-    "/produtos" => fn () => load("ProdutoController", "index"),
-  ],
-  "POST" => [
-    "/produtos" => fn () => load("ProdutoController", "store"),
-  ],
+// Este arquivo retorna um array com todas as rotas da aplicação.
+return [
+    'GET' => [
+        '/' => fn($params) => (new HomeController())->index($params),
+        '/produtos' => fn($params) => (new ProdutoController())->index($params),
+        '/produtos/{id}' => fn($params) => (new ProdutoController())->show($params),
+    ],
+    'POST' => [
+        '/login' => fn($params) => (new AuthController())->login($params),
+        '/produtos' => fn($params) => (new ProdutoController())->store($params),
+        '/register' => fn($params) => (new AuthController())->register($params), // <-- ADICIONE ESTA LINHA
+    ],
+    'PUT' => [
+        '/produtos/{id}' => fn($params) => (new ProdutoController())->update($params),
+    ],
+    'DELETE' => [
+        '/produtos/{id}' => fn($params) => (new ProdutoController())->destroy($params),
+    ],
+    
 ];

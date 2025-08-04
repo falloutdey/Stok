@@ -9,11 +9,15 @@ services:
       MYSQL_PASSWORD: userpass
     ports:
       - "3307:3306"
+    volumes:
+      # A linha foi movida para cá, no serviço 'db'
+      - ./backend/database:/docker-entrypoint-initdb.d
 
   api:
     build: ./backend
     volumes:
       - ./backend:/var/www/html
+      - /var/www/html/vendor
     ports:
       - "8000:80"
     depends_on:

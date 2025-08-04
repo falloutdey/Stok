@@ -2,6 +2,8 @@ FROM php:8.1-apache
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+RUN docker-php-ext-install pdo_mysql mysqli
+
 WORKDIR /var/www/html
 
 # Habilita o mod_rewrite do Apache e garante que AllowOverride All esteja ativo
